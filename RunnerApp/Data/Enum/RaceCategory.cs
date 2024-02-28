@@ -6,6 +6,6 @@
         Ultra,
         FiveK,
         TenK,
-        HalfMarathondd
+        HalfMarathon
     }
 }
