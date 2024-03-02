@@ -29,9 +29,13 @@ namespace RunnerApp.Repository
         {
             return await _context.Races.ToListAsync();
         }
-        public async Task<Race> GetByIdAsync(int id)
+        public async Task<Race?> GetByIdAsync(int id)
         {
             return await _context.Races.Include(i => i.Address).FirstOrDefaultAsync(r => r.Id == id);
+        }
+        public async Task<Race?> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.Races.Include(i => i.Address).AsNoTracking().FirstOrDefaultAsync(r => r.Id == id);
         }
         public async Task<IEnumerable<Race>> GetAllRacesByCity(string City)
         {
